@@ -9,6 +9,7 @@ BUNDLE_BUILD__SASSC=--disable-march-tune-native
 
 echo "Installing gems..."
 
+bundle config path vendor/bundle
 bundle install --jobs 4 --retry 3
 
 echo "Building Jekyll site..."
@@ -23,5 +24,5 @@ git init
 git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 git add .
-git commit -m "published by GitHub Actions"
+git commit -m "published via GitHub Actions"
 git push --force ${REPO} master:${BRANCH}
