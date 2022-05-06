@@ -13,9 +13,12 @@ echo "Installing gems..."
 bundle config path vendor/bundle
 bundle install --jobs 4 --retry 3
 
+echo "Installing dependencies..."
+npm install
+
 echo "Building Jekyll site..."
 
-JEKYLL_ENV=production bundle exec jekyll build
+npm run build
 
 echo "Publishing..."
 
